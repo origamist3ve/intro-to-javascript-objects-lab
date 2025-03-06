@@ -28,7 +28,7 @@ const game = {
 
     gymStatus() {
         const gameTally = {completed: 0, incomplete: 0};
-        this.gyms.push(gameTally)
+
         for (i = 0; i < this.gyms.length; i++) {
             if(this.gyms[i].completed === true) {
                 gameTally.completed += 1
@@ -37,6 +37,7 @@ const game = {
                 gameTally.incomplete += 1
             }
         }
+        console.log(gameTally);
     },
 
     partyCount() {
@@ -78,11 +79,12 @@ game.party = pokemon.slice(6,7)
 
 //Todo: get back to this
 
-for (i = 0; i < pokemon.length; i++) {
-    if (pokemon[i].name === "Bulbasaur") {
-        game.party = pokemon[i].slice(pokemon[i], i = 1)
-    }
-}
+// for (i = 0; i < pokemon.length; i++) {
+//     if (pokemon[i].name === "Bulbasaur") {
+//         game.party = pokemon[i].slice(pokemon[i], i = 1)
+//     }
+// }
+console.log(game.party)
 
 
 /*
@@ -120,6 +122,7 @@ for (i = 0; i < game.gyms.length; i++) {
         game.gyms[i].completed = true
     }
 }
+
 console.log(game.gyms)
 //
 //
@@ -223,7 +226,7 @@ game.catchPokemon = function(pokemonObj) {
 
 game.catchPokemon(pokemon[10])
 
-console.log(game.items[1].quantity)
+console.log(game.items)
 //
 //
 // /*
@@ -235,13 +238,13 @@ console.log(game.items[1].quantity)
 // */
 //
 //
-// for(i = 0; i< game.gyms.length; i++) {
-//     if(game.gyms[i].difficulty <= 6) {
-//         game.gyms[i].completed = true
-//     }
-// }
-//
-// console.log(game.gyms)
+for(i = 0; i< game.gyms.length; i++) {
+    if(game.gyms[i].difficulty <= 6) {
+        game.gyms[i].completed = true
+    }
+}
+
+console.log(game.gyms)
 //
 //
 //
@@ -306,4 +309,6 @@ for(i = 0; i< game.gyms.length; i++) {
         game.gyms[i].completed = true
     }
 }
+
 console.log(game.gyms)
+game.gymStatus()
