@@ -312,3 +312,53 @@ for(i = 0; i< game.gyms.length; i++) {
 
 console.log(game.gyms)
 game.gymStatus()
+
+
+// Test for the difficulty property
+console.assert(game.difficulty === 'Hard', 'Test Failed: Difficulty should be Hard');
+
+// Test for adding a Pokémon to the party (Exercise 4)
+console.assert(game.party.length === 1, 'Test Failed: Party should contain one Pokémon after adding the starter');
+
+// Test for adding more Pokémon to the party (Exercise 5)
+console.assert(game.party.length === 3, 'Test Failed: Party should contain three Pokémon after adding more');
+
+// Test for gym completion status (Exercise 6)
+let completedGyms = game.gyms.filter(gym => gym.completed === true).length;
+console.assert(completedGyms === 3, 'Test Failed: Three gyms with difficulty below or equal to 3 should be marked completed');
+
+// Test for evolving Pokémon (Exercise 7)
+let evolvedPokemon = game.party.some(pokemon => pokemon.name === "Ivysaur" || pokemon.name === "Charmeleon" || pokemon.name === "Wartortle" || pokemon.name === "Raichu");
+console.assert(evolvedPokemon === true, 'Test Failed: Starter Pokémon should evolve in the party');
+
+// Test for the `catchPokemon` method (Exercise 10)
+let beforeCatch = game.party.length;
+game.catchPokemon(pokemon[10]); // Catch another Pokémon
+console.assert(game.party.length === beforeCatch + 1, 'Test Failed: Party should contain one more Pokémon after catching');
+
+// Test for decrementing the number of Pokéballs after catching a Pokémon (Exercise 11)
+let beforeCatchPokeballs = game.items[1].quantity;
+game.catchPokemon(pokemon[11]); // Catch another Pokémon
+console.assert(game.items[1].quantity === beforeCatchPokeballs - 1, 'Test Failed: Pokéball quantity should decrease by 1 after catching a Pokémon');
+
+// Test for gym completion status (Exercise 12)
+let completedGymsAfterDifficulty6 = game.gyms.filter(gym => gym.completed === true).length;
+console.assert(completedGymsAfterDifficulty6 === 6, 'Test Failed: Gyms with difficulty below or equal to 6 should be completed');
+
+// Test for `gymStatus` method (Exercise 13)
+let gymTally = { completed: 0, incomplete: 0 };
+for (let i = 0; i < game.gyms.length; i++) {
+    if (game.gyms[i].completed) gymTally.completed++;
+    else gymTally.incomplete++;
+}
+console.assert(gymTally.completed === 6 && gymTally.incomplete === 2, 'Test Failed: gymStatus should tally completed and incomplete gyms correctly');
+
+// Test for `partyCount` method (Exercise 14)
+console.assert(game.partyCount() === 5, 'Test Failed: Party count should be 5 after adding Pokémon');
+
+// Test for gym completion status (Exercise 15)
+let completedGymsAfterDifficulty8 = game.gyms.filter(gym => gym.completed === true).length;
+console.assert(completedGymsAfterDifficulty8 === 8, 'Test Failed: Gyms with difficulty below or equal to 8 should be completed');
+
+// Test if `gymStatus` method correctly tallies after exercise 15
+game.gymStatus();
