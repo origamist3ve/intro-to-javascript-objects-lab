@@ -1,4 +1,3 @@
-
 const pokemon = require('./data.js');
 
 // console.dir(pokemon, { maxArrayLength: null })
@@ -74,13 +73,7 @@ Solve Exercise 4 here:
 // //Title: slice the chosen index into new object array
 game.party = pokemon.slice(6,7)
 
-//Todo: get back to this
 
-// for (i = 0; i < pokemon.length; i++) {
-//     if (pokemon[i].name === "Bulbasaur") {
-//         game.party = pokemon[i].slice(pokemon[i], i = 1)
-//     }
-// }
 console.log(game.party)
 
 
@@ -196,8 +189,6 @@ pokemon.forEach((choice)=> {
 game.catchPokemon = function(pokemonObj) {
     game.party.push(pokemonObj)
 }
-
-game.catchPokemon(pokemon[10])
 console.log(game.party)
 //
 //
@@ -311,3 +302,5 @@ console.log(game.gyms)
 game.gymStatus()
 
 
+
+console.log(game);
